@@ -48,7 +48,7 @@ class facturaController{
     }
 
     update(req, res){
-        const{serie, correlativo, total, nit}
+        const{serie, correlativo, total, nit} = req.body;
         connection.query('update Inventario set serie = ?, correlativo = ?, total = ?, nit = ? where clave_factura = ?',
         [serie, correlativo, total, nit], (err, rows)=>{
             if(!err){
@@ -115,7 +115,7 @@ class facturaController{
     }
 
     update_detalle(req, res){
-        const{clave_factura, id_inventario, cantidad, subtotal}
+        const{clave_factura, id_inventario, cantidad, subtotal} = req.body;
         connection.query('update detalle_factura set  cantidad = ?, subtotal = ? where clave_factura = ? and id_inventario = ?',
         [clave_factura, id_inventario, cantidad, subtotal], (err, rows)=>{
             if(!err){

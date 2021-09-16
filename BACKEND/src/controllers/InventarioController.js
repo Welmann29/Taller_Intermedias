@@ -47,7 +47,7 @@ class inventarioController{
     }
 
     update(req, res){
-        const{id_inventario, nombre, descripcion, cantidad, precio}
+        const{id_inventario, nombre, descripcion, cantidad, precio} = req.body;
         connection.query('update Inventario set nombre = ?, descripcion = ?, cantidad = ?, precio = ? where id_inventario = ?',
         [nombre, descripcion, cantidad, precio, id_inventario], (err, rows)=>{
             if(!err){
@@ -59,7 +59,7 @@ class inventarioController{
     }
 
     sumar_stock(req, res){
-        const{id_inventario, cantidad}
+        const{id_inventario, cantidad} = req.body
         connection.query('update Inventario set cantidad = cantidad + ? where id_inventario = ?', 
         [id_inventario, cantidad], (err, rows)=>{
             if(!err){
@@ -71,7 +71,7 @@ class inventarioController{
     }
 
     restar_stock(req, res){
-        const{id_inventario, cantidad}
+        const{id_inventario, cantidad} = req.body
         connection.query('update Inventario set cantidad = cantidad - ? where id_inventario = ?', 
         [cantidad, id_inventario], (err, rows)=>{
             if(!err){
