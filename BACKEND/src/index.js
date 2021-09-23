@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 
 //SETTINGS
 app.set('port', process.env.PORT || 3000);
 
 //MIDDLEWARES
 app.use(express.json()); //nos sirve para poder recibir datos de tipo json
+
+app.use(cors())
 
 //ROUTES se debe de agregar cada uno de los controllers
 app.use(require('./routes/Tipo_Animal'))

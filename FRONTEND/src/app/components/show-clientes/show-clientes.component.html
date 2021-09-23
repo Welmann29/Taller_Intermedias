@@ -1,0 +1,18 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-5">Nuestros felices clientes</h1>
+      <div class="d-flex justify-content-center"><img id="happy" src="https://www.pngkey.com/png/full/137-1377102_happy-dog-companion-dog.png"><img></div>
+    </div>
+  </div>
+<div class="container pt-5 row">
+    <div class="card column p-2 m-5 " style="width: 18rem;" *ngFor="let cliente of clientes">
+        <img class="card-img-top" src="https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png?x=480&quality=20" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{cliente.id_cliente}}. {{cliente.nombres}} {{cliente.apellidos}}</h5>
+          <p class="card-text">DPI: {{cliente.dpi}}</p>
+          <p class="card-text">Fecha de Nacimiento: {{cliente.fecha_nacimiento}}</p>
+          <p class="card-text">Sexo: {{cliente.sexo}}</p>
+          <p class="card-text">Mascota Preferida: {{cliente.mascota_preferida}}</p>
+        </div>
+      </div>
+</div>

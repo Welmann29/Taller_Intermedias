@@ -1,0 +1,21 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Lamentamos que te tengas que ir</h1>
+      <div class="d-flex justify-content-center"><img id="sad" src="https://cdn.oyepng.com/oyepng/preview/cute-sad-puppy-sitting-dog-png-images-126-11615977620uu0kpe3dqm.png"><img></div>
+      <p class="lead">Cerciorate de que tus datos estén correctamente ingresados en la plataforma.</p>
+      <p class="lead">Por favor ingresa tus datos a continuaci&oacute;n</p>
+    </div>
+  </div>
+
+<div class="container pt-4">
+    <form>
+        <div class="form-group pb-4">
+          <label for="exampleInputEmail1">N&uacute;mero de DPI</label>
+          <input name="email" [(ngModel)]="cliente.dpi" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su n&uacute;mero de DPI">
+        </div>
+        <button type="submit" class="btn btn-danger p-2" (click)="borrar()">Eliminar Registro</button>
+        <div class="form-group pt-3">
+          <label>{{res}}</label>
+        </div>
+      </form>
+</div>

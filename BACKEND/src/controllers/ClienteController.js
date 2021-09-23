@@ -36,9 +36,9 @@ class clienteController{
     }
 
     update(req, res){
-        const{dpi, nombres, apellidos, sexo, fecha_nacimiento, mascota_preferida, id_cliente} = req.body;
-        connection.query('update Cliente set dpi = ?, nombres = ?, apellidos = ?,sexo = ?,fecha_nacimiento = ? , mascota_preferida = ? where id_cliente = ?', 
-        [dpi, nombres, apellidos, sexo, fecha_nacimiento, mascota_preferida, id_cliente], (err, rows)=>{
+        const{dpi, nombres, apellidos, sexo, fecha_nacimiento, mascota_preferida} = req.body;
+        connection.query('update Cliente set nombres = ?, apellidos = ?,sexo = ?,fecha_nacimiento = ? , mascota_preferida = ? where dpi = ?', 
+        [nombres, apellidos, sexo, fecha_nacimiento, mascota_preferida, dpi], (err, rows)=>{
             if(!err){
                 res.json(rows)
             }else{
@@ -48,7 +48,7 @@ class clienteController{
     }
 
     update_animal(req, res){
-        const{mascota_preferida, id_cliente} = req.body;
+        const{mascota_preferida, id_cliente} = req;
         connection.query('update Cliente set mascota_preferida = ? where id_cliente = ?', 
         [mascota_preferida, id_cliente], (err, rows)=>{
             if(!err){
@@ -61,7 +61,7 @@ class clienteController{
 
     delete(req, res){
         const{id} = req.params;
-        connection.query('delete Cliente where id_cliente = ?',[id], (err, rows)=>{
+        connection.query('delete from Cliente where dpi = ?',[id], (err, rows)=>{
             if(!err){
                 res.json(rows);
             }else{
